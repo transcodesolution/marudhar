@@ -17,19 +17,4 @@ const add_edit_setting = async(req, res) =>{
     }
 }
 
-const get_setting_by_id = async(req, res) =>{
-    let body = req.body
-    try{
-        
-            const setting = await Setting.findOne({},body, {new : true});
-            if (!setting) return await new Setting(body).save()
-            
-            return res.status(200).json("Setting successfully added!")
-        
-    }catch(error){
-        console.log(error);
-        return res.status(500).json("Internal Server Error!");
-    }
-}
-
-module.exports = {add_edit_setting, get_setting_by_id};
+module.exports = add_edit_setting

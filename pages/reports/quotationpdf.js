@@ -542,6 +542,7 @@ const salesNew = async (req, res) => {
                     finalAmount += parseFloat(object.net_value.toFixed(2))
                 }
             })
+            console.log(getQuotation[0],"ehydfue ---------------------------------------");
             // console.log(getQuotation[0])
             let customer = "";
             if (getQuotation[0].customerData.length > 0) {
@@ -736,7 +737,7 @@ const salesNew = async (req, res) => {
             const obj = {
                 curdate: new Date().toDateString(),
                 qno: quotationNoIs,
-                sman:salesman,
+                // sman:salesman,
 
                 sno: quotationNo,
                 customerDetails: customerDetails,
@@ -781,6 +782,7 @@ const salesNew = async (req, res) => {
         return res.status(200).json({ isSuccess: true, data: null, message: "No Any Data Found for this quotation" });
     }
     catch (err) {
+        console.log(err);
         return res.status(500).json({ isSuccess: false, data: null, message: err.message || "having issue in server" })
     }
 };
